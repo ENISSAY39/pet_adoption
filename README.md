@@ -66,19 +66,18 @@ The project demonstrates:
 
 1. Clone this repository:
 
-    ```bash
-    git clone https://github.com/yourusername/pet-adoption.git
-    cd pet-adoption
+```bash
+git clone https://github.com/yourusername/pet-adoption.git
+cd pet-adoption
 
-    composer install
-    ```
+composer install
+```
 
 ## 🧩 Install dependencies
 
 ```bash
 composer install
 npm install && npm run dev
-
 ```
 
 ---
@@ -88,7 +87,6 @@ npm install && npm run dev
 ```bash
 cp .env.example .env
 php artisan key:generate
-
 ```
 
 ---
@@ -97,7 +95,6 @@ php artisan key:generate
 
 ```bash
 php artisan migrate
-
 ```
 
 ---
@@ -107,9 +104,6 @@ php artisan migrate
 ```bash
 php artisan tinker
 >>> App\Models\Species::create(['name' => 'Your_species']);
-
-
-
 ```
 
 ---
@@ -118,7 +112,4 @@ php artisan tinker
 
 ```bash
 composer run dev
-
-
-
 ```
