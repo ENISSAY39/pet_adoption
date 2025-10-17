@@ -6,14 +6,19 @@ This project was developed as a **Midterm Project** for the Web Framework course
 
 ---
 
-## 🚀 Features
+## 🚀 Features (updated)
 
 -   🐶 Create, edit, view, and delete pets
--   🐱 Link each pet to a species (Dog ,Cat or Bird)
--   🔍 “Show” page with detailed information for each pet
+-   🐱 Link each pet to a species (Dog, Cat or Bird)
+-   🔍 Show page with detailed information for each pet
 -   ✅ Server-side form validation
 -   📨 Success messages after each CRUD action
 -   🎨 Responsive layout styled with TailwindCSS
+-   🔎 Search & Filters on the pets listing:
+    -   Species
+    -   Age (Min and Max numeric inputs on the same line)
+    -   Adopted (Yes / No / All)
+    -   Pagination preserves filter query parameters
 -   🧩 Clean MVC structure using Laravel’s Eloquent ORM
 -   💾 Database with 2 related models: `Pet` and `Species`
 
@@ -29,7 +34,7 @@ a small web application to manage animals for adoption.
 The project demonstrates:
 
 -   Routing
--   Controller logic
+-   Controller logic (PetController@index now supports species, min_age, max_age and adopted filters)
 -   Model relationships
 -   Form validation
 -   Dynamic Blade templates with TailwindCSS
@@ -62,13 +67,25 @@ The project demonstrates:
 
 # 🌱 Database Seeding (Updated with Bird Species)
 
-The database now includes three species:
+The database includes three species:
 
 -   🐶 Dog
 -   🐱 Cat
 -   🐦 Bird
 
 and **20 pets** with mixed species, breeds, ages, and adoption statuses.
+
+## 🔎 How to use the filters
+
+1. Open the pets list page (e.g. GET /pets).
+2. Use the filter form at the top:
+    - Select a species (or leave empty for all).
+    - Enter numeric values for "Min" and "Max" age (both on the same line).
+    - Choose Adopted: Oui / Non / Tous.
+    - Click "Filtrer". Click "Réinitialiser" to clear filters.
+3. Pagination links keep the current filter query parameters.
+
+> Note: a previous double-thumb slider experiment was replaced by two simple numeric inputs for Min and Max age to simplify UX and avoid overlapping handle issues.
 
 ## 🧩 Run all seeders
 

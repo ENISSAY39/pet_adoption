@@ -16,6 +16,75 @@
             </div>
         @endif
 
+        <!-- Search and Filter -->
+        <div class="search-filters mb-6">
+            <form method="GET" action="{{ request()->url() }}" class="space-y-4">
+                <!-- Species -->
+                <div>
+                    <label for="species_id" class="block text-sm font-medium text-gray-700">Species</label>
+                    <select name="species_id" id="species_id"
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500">
+                        <option value="">Toutes</option>
+                        @foreach ($species as $s)
+                            <option value="{{ $s->id }}" {{ request('species_id') == $s->id ? 'selected' : '' }}>
+                                {{ $s->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <!-- Age (min & max inputs on the same line) -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Âge (années)</label>
+                    <div class="mt-2 px-3 py-2 bg-white border border-gray-200 rounded">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-1/2">
+                                <label for="min_age" class="block text-xs text-gray-500">Min</label>
+                                <input type="number" name="min_age" id="min_age" min="0" max="100"
+                                    value="{{ request('min_age', '') }}"
+                                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+                                    placeholder="Âge min">
+                            </div>
+
+                            <div class="w-1/2">
+                                <label for="max_age" class="block text-xs text-gray-500">Max</label>
+                                <input type="number" name="max_age" id="max_age" min="0" max="100"
+                                    value="{{ request('max_age', '') }}"
+                                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+                                    placeholder="Âge max">
+                            </div>
+                        </div>
+
+                        <p class="mt-2 text-xs text-gray-500">Saisissez les âges min et max puis cliquez "Filtrer".
+                            Laissez vide pour ignorer.</p>
+                    </div>
+                </div>
+
+                <!-- Adopted -->
+                <div>
+                    <label for="adopted" class="block text-sm font-medium text-gray-700">Adopté</label>
+                    <select name="adopted" id="adopted"
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500">
+                        <option value="">Tous</option>
+                        <option value="1" {{ request('adopted') === '1' ? 'selected' : '' }}>Oui</option>
+                        <option value="0" {{ request('adopted') === '0' ? 'selected' : '' }}>Non</option>
+                    </select>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex space-x-2">
+                    <button type="submit"
+                        class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md">
+                        Filtrer
+                    </button>
+                    <a href="{{ request()->url() }}"
+                        class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold rounded-lg shadow-md">
+                        Réinitialiser
+                    </a>
+                </div>
+            </form>
+        </div>
+
         <!-- Empty message -->
         @if ($pets->isEmpty())
             <p class="text-gray-500 text-center text-lg mt-10">No pets here 😿</p>
@@ -88,6 +157,11 @@
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+
+            {{-- pagination --}}
+            <div class="mt-4">
+                {{ $pets->links() }}
             </div>
         @endif
     </div>
