@@ -4,7 +4,7 @@ This project is a **Pet Adoption Management System** built with **Laravel 12.x**
 It allows the user to manage animals available for adoption through a complete CRUD system (Create, Read, Update, Delete).  
 This project was developed as a **Midterm Project** for the Web Framework course at ITS Surabaya.
 
-## Lecturer : Sir Agus Budi Raharjo
+## Lecturer : **Sir Agus Budi Raharjo**
 
 ## Author : **Gharbi Yassine**
 
