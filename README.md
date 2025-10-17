@@ -60,6 +60,22 @@ The project demonstrates:
 | created_at | timestamp   | Creation date         |
 | updated_at | timestamp   | Update date           |
 
+# 🌱 Database Seeding (Updated with Bird Species)
+
+The database now includes three species:
+
+-   🐶 Dog
+-   🐱 Cat
+-   🐦 Bird
+
+and **20 pets** with mixed species, breeds, ages, and adoption statuses.
+
+## 🧩 Run all seeders
+
+````bash
+php artisan migrate:fresh --seed
+
+
 ---
 
 ## ⚙️ Installation & Setup
@@ -71,7 +87,7 @@ git clone https://github.com/yourusername/pet-adoption.git
 cd pet-adoption
 
 composer install
-```
+````
 
 ## 🧩 Install dependencies
 
