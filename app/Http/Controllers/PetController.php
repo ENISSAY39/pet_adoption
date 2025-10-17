@@ -34,20 +34,22 @@ class PetController extends Controller
      */
     public function store(Request $request)
     {
-        // Validation
         $request->validate([
             'name' => 'required|string|max:255',
             'species' => 'required|string|max:255',
-            'age' => 'required|integer|min:0',
             'breed' => 'nullable|string|max:255',
+            'age' => 'required|integer|min:0',
         ]);
 
-        // Création
-        Pet::create($request->all());
+        // Force adopted = true if checkbox checked, false otherwise
+        $data = $request->all();
+        $data['adopted'] = $request->has('adopted');
 
-        // Redirection + message
-        return redirect()->route('pets.index')->with('success', 'Animal added avec succès !');
+        Pet::create($data);
+
+        return redirect()->route('pets.index')->with('success', 'Pet added successfully!');
     }
+
 
 
     /**
@@ -55,8 +57,9 @@ class PetController extends Controller
      */
     public function show(Pet $pet)
     {
-        //
+        return view('pets.show', compact('pet'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -72,22 +75,23 @@ class PetController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, Pet $pet)
-{
-    // Validation des champs
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'species' => 'required|string|max:255',
-        'age' => 'required|integer|min:0',
-        'breed' => 'nullable|string|max:255',
-        'adopted' => 'boolean',
-    ]);
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'species' => 'required|string|max:255',
+            'breed' => 'nullable|string|max:255',
+            'age' => 'required|integer|min:0',
+        ]);
 
-    // Mise à jour du pet
-    $pet->update($request->all());
+        $data = $request->all();
+        $data['adopted'] = $request->has('adopted'); // 👈 this line is the key
 
-    // Redirection vers la liste avec un message de succès
-    return redirect()->route('pets.index')->with('success', 'Animal updated with sucess !');
-}
+        $pet->update($data);
+
+        return redirect()->route('pets.index')->with('success', 'Pet updated successfully!');
+    }
+
+
 
     /**
      * Remove the specified resource from storage.

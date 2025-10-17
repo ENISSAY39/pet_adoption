@@ -15,7 +15,6 @@
             <h1 class="font-bold text-lg">🐾 Pet Adoption</h1>
             <div class="space-x-4">
                 <a href="{{ route('pets.index') }}" class="hover:underline">Accueil</a>
-                <a href="{{ route('pets.create') }}" class="hover:underline">Ajouter un animal</a>
             </div>
         </div>
     </nav>
