@@ -3,45 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pet;
+use App\Models\Species;
 use Illuminate\Http\Request;
 
 class PetController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        // On récupère tous les pets dans la base
-        $pets = Pet::all();
-
-        // On envoie la variable $pets à la vue
+        $pets = Pet::with('species')->get();
         return view('pets.index', compact('pets'));
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        // Affiche le formulaire de création d'un pet
-        return view('pets.create');
+        $species = Species::orderBy('name')->get();
+        return view('pets.create', compact('species'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'species' => 'required|string|max:255',
-            'breed' => 'nullable|string|max:255',
+            'species_id' => 'required|exists:species,id',
+            'breed' => 'required|string|max:255',
             'age' => 'required|integer|min:0',
         ]);
 
-        // Force adopted = true if checkbox checked, false otherwise
         $data = $request->all();
         $data['adopted'] = $request->has('adopted');
 
@@ -50,55 +37,38 @@ class PetController extends Controller
         return redirect()->route('pets.index')->with('success', 'Pet added successfully!');
     }
 
-
-
-    /**
-     * Display the specified resource.
-     */
     public function show(Pet $pet)
     {
+        $pet->load('species');
         return view('pets.show', compact('pet'));
     }
 
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Pet $pet)
     {
-        return view('pets.edit', compact('pet'));
-    
-      
+        $species = Species::orderBy('name')->get();
+        return view('pets.edit', compact('pet', 'species'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Pet $pet)
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'species' => 'required|string|max:255',
-            'breed' => 'nullable|string|max:255',
+            'species_id' => 'required|exists:species,id',
+            'breed' => 'required|string|max:255',
             'age' => 'required|integer|min:0',
         ]);
 
         $data = $request->all();
-        $data['adopted'] = $request->has('adopted'); // 👈 this line is the key
+        $data['adopted'] = $request->has('adopted');
 
         $pet->update($data);
 
         return redirect()->route('pets.index')->with('success', 'Pet updated successfully!');
     }
 
-
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Pet $pet)
     {
         $pet->delete();
-        return redirect()->route('pets.index')->with('success', 'Pet supprimé avec succès !');
+        return redirect()->route('pets.index')->with('success', 'Pet deleted successfully!');
     }
 }
