@@ -80,3 +80,45 @@ composer install
 npm install && npm run dev
 
 ```
+
+---
+
+## 🧰 Configure the environment
+
+```bash
+cp .env.example .env
+php artisan key:generate
+
+```
+
+---
+
+## 🧱 Run the migrations
+
+```bash
+php artisan migrate
+
+```
+
+---
+
+### 🐶 Add default species data
+
+```bash
+php artisan tinker
+>>> App\Models\Species::create(['name' => 'Your_species']);
+
+
+
+```
+
+---
+
+### 🚀 Launch the development server
+
+```bash
+composer run dev
+
+
+
+```
