@@ -10,11 +10,13 @@
 
 <body class="bg-gray-100 text-gray-800">
 
-    <nav class="bg-blue-600 text-white p-4">
+    <nav class="bg-gradient-to-r from-green-600 to-teal-500 p-4 text-white flex justify-between items-center shadow-md">
         <div class="container mx-auto flex justify-between">
-            <h1 class="font-bold text-lg">🐾 Pet Adoption</h1>
+            <h1 class="text-3xl md:text-4xl font-extrabold tracking-wide flex items-center gap-3 drop-shadow-sm">🐾 Pet
+                Catalog Manager </h1>
             <div class="space-x-4">
-                <a href="{{ route('pets.index') }}" class="hover:underline">Accueil</a>
+                <a href="{{ route('welcome') }}"
+                    class="text-3xl md:text-4xl font-extrabold tracking-wide flex items-center gap-3 drop-shadow-sm">Home</a>
             </div>
         </div>
     </nav>
@@ -22,6 +24,10 @@
     <main class="container mx-auto mt-6 px-4">
         {{ $slot }}
     </main>
+
+    <footer class="text-center text-sm text-gray-600 py-6">
+        © {{ date('Y') }} Pet catalog manager | Yassine's Laravel Project 🐾
+    </footer>
 
 </body>
 

@@ -1,7 +1,9 @@
-# 🐾 Pet Adoption System – Laravel 12
+# 🐾 Pet catalogue manager – Laravel 12
 
-This project is a **Pet Adoption Management System** built with **Laravel 12.x**, **PHP 8.4**, and **TailwindCSS**.  
-It allows the user to manage animals available for adoption through a complete CRUD system (Create, Read, Update, Delete).  
+🐾 Pet Catalogue Manager – Laravel 12
+
+This project is a **Pet Catalogue Management System** built with **Laravel 12.x** , **PHP 8.4**, and **TailwindCSS**.
+It allows the user to manage a catalogue of animals through a complete **CRUD system** (Create, Read, Update, Delete).
 This project was developed as a **Midterm Project** for the Web Framework course at ITS Surabaya.
 
 ## Lecturer : **Sir Agus Budi Raharjo**
@@ -56,16 +58,16 @@ The project demonstrates:
 
 ### **Table: pets**
 
-| Column     | Type        | Description           |
-| ---------- | ----------- | --------------------- |
-| id         | int         | Primary key           |
-| name       | string      | Pet name              |
-| breed      | string      | Breed name            |
-| age        | integer     | Pet age               |
-| adopted    | boolean     | Adoption status       |
-| species_id | foreign key | Links to `species.id` |
-| created_at | timestamp   | Creation date         |
-| updated_at | timestamp   | Update date           |
+| Column     | Type        | Description                          |
+| ---------- | ----------- | ------------------------------------ |
+| id         | int         | Primary key                          |
+| name       | string      | Pet name                             |
+| breed      | string      | Breed name                           |
+| age        | integer     | Pet age                              |
+| adopted    | boolean     | Adoption status (for data demo only) |
+| species_id | foreign key | Links to `species.id`                |
+| created_at | timestamp   | Creation date                        |
+| updated_at | timestamp   | Update date                          |
 
 # 🌱 Database Seeding (Updated with Bird Species)
 
@@ -83,56 +85,17 @@ and **20 pets** with mixed species, breeds, ages, and adoption statuses.
 2. Use the filter form at the top:
     - Select a species (or leave empty for all).
     - Enter numeric values for "Min" and "Max" age (both on the same line).
-    - Choose Adopted: Oui / Non / Tous.
-    - Click "Filtrer". Click "Réinitialiser" to clear filters.
+    - Choose "Can be Adopted" option : Yes / No / All.
+    - Click "Filtrer". Click "Reset" to clear filters.
 3. Pagination links keep the current filter query parameters.
 
-> Note: a previous double-thumb slider experiment was replaced by two simple numeric inputs for Min and Max age to simplify UX and avoid overlapping handle issues.
+---
 
-## 🧩 Run all seeders
+## 🧩 Reset DB and seed
 
-````bash
+```bash
 php artisan migrate:fresh --seed
-
-
----
-
-## ⚙️ Installation & Setup
-
-1. Clone this repository:
-
-```bash
-git clone https://github.com/yourusername/pet-adoption.git
-cd pet-adoption
-
-composer install
-````
-
-## 🧩 Install dependencies
-
-```bash
-composer install
-npm install && npm run dev
 ```
-
----
-
-## 🧰 Configure the environment
-
-```bash
-cp .env.example .env
-php artisan key:generate
-```
-
----
-
-## 🧱 Run the migrations
-
-```bash
-php artisan migrate
-```
-
----
 
 ### 🐶 Add default species data
 
@@ -143,7 +106,37 @@ php artisan tinker
 
 ---
 
-### 🚀 Launch the development server
+## ⚙️ Quick installation
+
+1. Clone and install backend deps:
+
+```bash
+git clone https://github.com/yourusername/pet-adoption.git
+cd pet-adoption
+composer install
+```
+
+2. Frontend:
+
+```bash
+npm install
+npm run dev
+```
+
+3. Environment:
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+4. Migrate:
+
+```bash
+php artisan migrate
+```
+
+5. Run dev server:
 
 ```bash
 composer run dev

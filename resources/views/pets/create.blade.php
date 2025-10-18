@@ -33,7 +33,7 @@
 
         <div class="flex items-center space-x-2">
             <input type="checkbox" name="adopted" id="adopted" value="1">
-            <label for="adopted" class="font-semibold">Adopted</label>
+            <label for="adopted" class="font-semibold">Can be adopted</label>
         </div>
 
         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Create Pet</button>
