@@ -14,10 +14,17 @@
         <div class="container mx-auto flex justify-between">
             <h1 class="text-3xl md:text-4xl font-extrabold tracking-wide flex items-center gap-3 drop-shadow-sm">🐾 Pet
                 Catalog Manager </h1>
-            <div class="space-x-4">
+
+
+
+            <div class="flex items-center space-x-1">
                 <a href="{{ route('welcome') }}"
                     class="text-3xl md:text-4xl font-extrabold tracking-wide flex items-center gap-3 drop-shadow-sm">Home</a>
+                <span class="text-lg">|</span>
+                <a href="{{ route('pets.index') }}"
+                    class="text-3xl md:text-4xl font-extrabold tracking-wide flex items-center gap-3 drop-shadow-sm">Catalog</a>
             </div>
+
         </div>
     </nav>
 
