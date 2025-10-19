@@ -159,3 +159,4 @@ composer run dev
 
 A **welcome page** (welcome.blade.php) serves as the landing page,
 redirecting users to the pet catalogue with a simple and responsive layout.
+![alt text](image-1.png)
