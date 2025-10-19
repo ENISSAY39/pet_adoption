@@ -10,6 +10,8 @@ This project was developed as a **Midterm Project** for the Web Framework course
 
 ## 🚀 Features (updated)
 
+### Feature overview :
+
 -   🐶 Create, edit, view, and delete pets
 -   🐱 Link each pet to a species (Dog, Cat or Bird)
 -   🔍 Show page with detailed information for each pet
@@ -26,7 +28,52 @@ This project was developed as a **Midterm Project** for the Web Framework course
 -   📊 Statistics page displaying adoption data by species
 -   📈 Interactive bar chart using Chart.js for visual representation
 
----
+### 🏠 Home Page
+
+A **welcome page** (welcome.blade.php) serves as the landing page,
+redirecting users to the pet catalogue with a simple and responsive layout.
+![alt text](image-1.png)
+
+### 📋 Main Catalogue Interface (Index Page)
+
+The main page displays all pets in a paginated table.  
+Users can apply filters by species, age, or adoption status.
+
+📸 **Screenshot – Main Index Page**
+![alt text](image-3.png)
+
+### 🐶 Create
+
+The user can add a new pet by filling out a form with validation w (species, name, breed, age, and adoption status).
+With the **Add pet btn**
+
+📸 **Screenshot – Create Form**
+
+![alt text](image-4.png)
+
+### ✏️ Edit Pet inforamtions
+
+Each pet can be updated easily from the edit page.  
+Form validation ensures data consistency.
+
+📸 **Screenshot – Edit Pet Page**
+
+![alt text](image-5.png)
+
+### 📊 Statistics Page
+
+A dedicated Statistics view displays the number of adopted and non-adopted pets for each species.
+Can be entered bu the Stats btn on layout :
+
+📸 **Screenshot – Stats view**
+![alt text](image-6.png)
+
+**Features:**
+
+-   Clean summary table showing adoption counts per species
+-   Bar chart powered by Chart.js for quick data visualization
+-   Simple responsive layout using TailwindCSS
+-   Linked in the main navigation bar for easy access
 
 ## 🧠 Project Overview
 
@@ -70,19 +117,6 @@ The project demonstrates:
 | species_id | foreign key | Links to `species.id`                |
 | created_at | timestamp   | Creation date                        |
 | updated_at | timestamp   | Update date                          |
-
-# 📊 Statistics Page
-
-A dedicated Statistics view displays the number of adopted and non-adopted pets for each species.
-
-**Features:**
-
--   Clean summary table showing adoption counts per species
--   Bar chart powered by Chart.js for quick data visualization
--   Simple responsive layout using TailwindCSS
--   Linked in the main navigation bar for easy access
-
-![alt text](image.png)
 
 # 🌱 Database Seeding (Updated with Bird Species)
 
@@ -154,9 +188,3 @@ php artisan migrate
 ```bash
 composer run dev
 ```
-
-# 🏠 Home Page
-
-A **welcome page** (welcome.blade.php) serves as the landing page,
-redirecting users to the pet catalogue with a simple and responsive layout.
-![alt text](image-1.png)
