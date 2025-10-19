@@ -1,27 +1,29 @@
 <x-layout>
-    <x-slot name="title">Pets Catalog </x-slot>
+    <x-slot name="title">Pets Catalog</x-slot>
 
     <h1 class="text-3xl font-bold text-green-700 mb-6 flex items-center gap-2">
         All Pets 🐾
     </h1>
 
-    <!-- Filtres -->
+    <!-- FILTRES -->
     <form method="GET" action="{{ route('pets.index') }}" class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+        <!-- Species -->
         <div>
-            <label for="species" class="block text-sm font-medium text-gray-700 mb-1">Spicies </label>
-            <select name="species" id="species"
+            <label for="species_id" class="block text-sm font-medium text-gray-700 mb-1">Species</label>
+            <select name="species_id" id="species_id"
                 class="w-full rounded-lg border-gray-300 focus:ring-green-500 focus:border-green-500">
                 <option value="">All species</option>
                 @foreach ($species as $s)
-                    <option value="{{ $s->name }}" {{ request('species') == $s->name ? 'selected' : '' }}>
+                    <option value="{{ $s->id }}" {{ request('species_id') == $s->id ? 'selected' : '' }}>
                         {{ $s->name }}
                     </option>
                 @endforeach
             </select>
         </div>
 
+        <!-- Age min/max -->
         <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Age (années)</label>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Age (years)</label>
             <div class="flex gap-2">
                 <input type="number" name="min_age" placeholder="Min" value="{{ request('min_age') }}"
                     class="w-1/2 rounded-lg border-gray-300 focus:ring-green-500 focus:border-green-500">
@@ -30,16 +32,18 @@
             </div>
         </div>
 
+        <!-- Adopted -->
         <div>
             <label for="adopted" class="block text-sm font-medium text-gray-700 mb-1">Can be adopted</label>
             <select name="adopted" id="adopted"
                 class="w-full rounded-lg border-gray-300 focus:ring-green-500 focus:border-green-500">
                 <option value="">All</option>
-                <option value="1" {{ request('adopted') == '1' ? 'selected' : '' }}>Yes </option>
-                <option value="0" {{ request('adopted') == '0' ? 'selected' : '' }}>No </option>
+                <option value="1" {{ request('adopted') == '1' ? 'selected' : '' }}>Yes</option>
+                <option value="0" {{ request('adopted') == '0' ? 'selected' : '' }}>No</option>
             </select>
         </div>
 
+        <!-- Buttons -->
         <div class="flex items-end gap-2">
             <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg shadow">
                 Filter
@@ -51,7 +55,7 @@
         </div>
     </form>
 
-    <!-- Bouton ajout -->
+    <!-- BOUTON AJOUT -->
     <div class="flex justify-end mb-4">
         <a href="{{ route('pets.create') }}"
             class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg shadow">
@@ -59,7 +63,7 @@
         </a>
     </div>
 
-    <!-- Tableau -->
+    <!-- TABLEAU -->
     <div class="overflow-x-auto rounded-lg shadow">
         <table class="w-full text-left border-collapse">
             <thead class="bg-green-600 text-white">
@@ -67,9 +71,9 @@
                     <th class="py-3 px-4">ID</th>
                     <th class="py-3 px-4">Name</th>
                     <th class="py-3 px-4">Species</th>
-                    <th class="py-3 px-4">Race</th>
+                    <th class="py-3 px-4">Breed</th>
                     <th class="py-3 px-4">Age</th>
-                    <th class="py-3 px-4">Can Be adopted </th>
+                    <th class="py-3 px-4">Can Be Adopted</th>
                     <th class="py-3 px-4 text-center">Actions</th>
                 </tr>
             </thead>
@@ -80,12 +84,12 @@
                         <td class="py-3 px-4 font-semibold">{{ $pet->name }}</td>
                         <td class="py-3 px-4">{{ $pet->species->name ?? '—' }}</td>
                         <td class="py-3 px-4">{{ $pet->breed }}</td>
-                        <td class="py-3 px-4">{{ $pet->age }} ans</td>
+                        <td class="py-3 px-4">{{ $pet->age }} years</td>
                         <td class="py-3 px-4">
                             @if ($pet->adopted)
-                                <span class="text-green-700 font-semibold">Yes </span>
+                                <span class="text-green-700 font-semibold">Yes</span>
                             @else
-                                <span class="text-red-600 font-semibold">No </span>
+                                <span class="text-red-600 font-semibold">No</span>
                             @endif
                         </td>
                         <td class="py-3 px-4 flex justify-center gap-2">
@@ -94,7 +98,7 @@
                             <a href="{{ route('pets.edit', $pet) }}"
                                 class="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded-lg">✏️</a>
                             <form action="{{ route('pets.destroy', $pet) }}" method="POST"
-                                onsubmit="return confirm('Supprimer ce pet ?')" class="inline">
+                                onsubmit="return confirm('Delete this pet?')" class="inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
@@ -104,7 +108,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="7" class="py-6 px-4 text-center text-gray-600">No pet found </td>
+                        <td colspan="7" class="py-6 px-4 text-center text-gray-600">No pets found.</td>
                     </tr>
                 @endforelse
             </tbody>
@@ -116,18 +120,18 @@
         <!-- Texte -->
         <div class="text-sm text-gray-600">
             @if ($pets->total() > 0)
-                Affichage de <strong>{{ $pets->firstItem() }}</strong> à <strong>{{ $pets->lastItem() }}</strong> sur
+                Showing <strong>{{ $pets->firstItem() }}</strong> to <strong>{{ $pets->lastItem() }}</strong> of
                 <strong>{{ $pets->total() }}</strong> results
             @else
                 No pets found.
             @endif
         </div>
 
-        <!-- Liens -->
+        <!-- Liens de pagination -->
         @if ($pets->hasPages())
             <div class="flex justify-center">
                 <nav role="navigation" aria-label="Pagination" class="inline-flex rounded-md shadow-sm">
-                    {{-- Page précédente --}}
+                    {{-- Précédente --}}
                     @if ($pets->onFirstPage())
                         <span
                             class="px-3 py-2 text-gray-400 bg-gray-100 border border-gray-300 rounded-l-md cursor-not-allowed">‹</span>
@@ -136,7 +140,7 @@
                             class="px-3 py-2 text-green-700 bg-white border border-gray-300 hover:bg-green-100 rounded-l-md">‹</a>
                     @endif
 
-                    {{-- Liens de pages --}}
+                    {{-- Liens des pages --}}
                     @foreach ($pets->links()->elements[0] ?? [] as $page => $url)
                         @if ($page == $pets->currentPage())
                             <span
@@ -147,7 +151,7 @@
                         @endif
                     @endforeach
 
-                    {{-- Page suivante --}}
+                    {{-- Suivante --}}
                     @if ($pets->hasMorePages())
                         <a href="{{ $pets->nextPageUrl() }}" rel="next"
                             class="px-3 py-2 text-green-700 bg-white border border-gray-300 hover:bg-green-100 rounded-r-md">›</a>
@@ -159,5 +163,4 @@
             </div>
         @endif
     </div>
-
 </x-layout>

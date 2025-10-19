@@ -136,6 +136,10 @@ The database includes three species:
     - Click "Filtrer". Click "Reset" to clear filters.
 3. Pagination links keep the current filter query parameters.
 
+📸 **Screenshot – Filter**
+
+![alt text](image-7.png)
+
 ---
 
 ## 🧩 Reset DB and seed
@@ -158,7 +162,7 @@ php artisan tinker
 1. Clone and install backend deps:
 
 ```bash
-git clone https://github.com/yourusername/pet-adoption.git
+git clone https://github.com/ENISSAY39/pet_catalog_managment.git
 cd pet-adoption
 composer install
 ```
