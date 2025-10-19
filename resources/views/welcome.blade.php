@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome - Pet Catalog Manager</title>
+    <title>Pet Catalog Manager</title>
     @vite('resources/css/app.css')
 </head>
 
@@ -39,7 +39,7 @@
 
         <!-- Section title -->
         <h3 class="text-2xl md:text-3xl font-semibold text-green-700 mb-8 flex items-center gap-2">
-            Here are the available species 🐾 :
+            Here are the available species 🐾
         </h3>
 
         <!-- Row of images -->

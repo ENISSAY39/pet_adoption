@@ -1,8 +1,6 @@
-# 🐾 Pet catalogue manager – Laravel 12
+# 🐾 Pet catalog manager – Laravel 12.33
 
-🐾 Pet Catalogue Manager – Laravel 12
-
-This project is a **Pet Catalogue Management System** built with **Laravel 12.x** , **PHP 8.4**, and **TailwindCSS**.
+This project is a **Pet Catalogue Management System** built with **Laravel 12.33** , **PHP 8.4**, and **TailwindCSS**.
 It allows the user to manage a catalogue of animals through a complete **CRUD system** (Create, Read, Update, Delete).
 This project was developed as a **Midterm Project** for the Web Framework course at ITS Surabaya.
 
@@ -25,6 +23,8 @@ This project was developed as a **Midterm Project** for the Web Framework course
     -   Pagination preserves filter query parameters
 -   🧩 Clean MVC structure using Laravel’s Eloquent ORM
 -   💾 Database with 2 related models: `Pet` and `Species`
+-   📊 Statistics page displaying adoption data by species
+-   📈 Interactive bar chart using Chart.js for visual representation
 
 ---
 
@@ -42,6 +42,8 @@ The project demonstrates:
 -   Model relationships
 -   Form validation
 -   Dynamic Blade templates with TailwindCSS
+-   Integration of Chart.js for simple data visualization
+-   Blade template reusability with layout components
 
 ---
 
@@ -69,6 +71,19 @@ The project demonstrates:
 | created_at | timestamp   | Creation date                        |
 | updated_at | timestamp   | Update date                          |
 
+# 📊 Statistics Page
+
+A dedicated Statistics view displays the number of adopted and non-adopted pets for each species.
+
+**Features:**
+
+-   Clean summary table showing adoption counts per species
+-   Bar chart powered by Chart.js for quick data visualization
+-   Simple responsive layout using TailwindCSS
+-   Linked in the main navigation bar for easy access
+
+![alt text](image.png)
+
 # 🌱 Database Seeding (Updated with Bird Species)
 
 The database includes three species:
@@ -76,8 +91,6 @@ The database includes three species:
 -   🐶 Dog
 -   🐱 Cat
 -   🐦 Bird
-
-and **20 pets** with mixed species, breeds, ages, and adoption statuses.
 
 ## 🔎 How to use the filters
 
@@ -141,3 +154,8 @@ php artisan migrate
 ```bash
 composer run dev
 ```
+
+# 🏠 Home Page
+
+A **welcome page** (welcome.blade.php) serves as the landing page,
+redirecting users to the pet catalogue with a simple and responsive layout.

@@ -19,10 +19,19 @@
 
             <div class="flex items-center space-x-1">
                 <a href="{{ route('welcome') }}"
-                    class="text-3xl md:text-4xl font-extrabold tracking-wide flex items-center gap-3 drop-shadow-sm">Home</a>
+                    class="text-2xl md:text-3xl font-extrabold tracking-wide flex items-center gap-3 drop-shadow-sm">Home</a>
+
                 <span class="text-lg">|</span>
+
                 <a href="{{ route('pets.index') }}"
-                    class="text-3xl md:text-4xl font-extrabold tracking-wide flex items-center gap-3 drop-shadow-sm">Catalog</a>
+                    class="text-2xl md:text-3xl font-extrabold tracking-wide flex items-center gap-3 drop-shadow-sm">Catalog</a>
+
+                <span class="text-lg">|</span>
+
+                <a href="{{ route('pets.stats') }}"
+                    class="text-2xl md:text-3xl font-extrabold tracking-wide flex items-center gap-3 drop-shadow-sm">Stats</a>
+
+
             </div>
 
         </div>

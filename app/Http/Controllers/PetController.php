@@ -92,4 +92,20 @@ class PetController extends Controller
         $pet->delete();
         return redirect()->route('pets.index')->with('success', 'Pet deleted successfully!');
     }
+
+    
+    public function stats()
+    {
+        $stats = \App\Models\Species::withCount([
+            'pets as adopted_count' => function ($query) {
+                $query->where('adopted', true);
+            },
+            'pets as not_adopted_count' => function ($query) {
+                $query->where('adopted', false);
+            }
+        ])->get();
+
+        return view('pets.stats', compact('stats'));
+    }
+
 }
