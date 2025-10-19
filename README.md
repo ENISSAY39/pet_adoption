@@ -33,7 +33,7 @@ This project was developed as a **Midterm Project** for the Web Framework course
 ### Purpose
 
 The goal of this project is to implement the **Laravel MVC architecture** through a real-world example:  
-a small web application to manage animals for adoption.
+a small web application to manage animal catalog.
 
 The project demonstrates:
 
