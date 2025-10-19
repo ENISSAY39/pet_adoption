@@ -68,8 +68,6 @@ Can be entered bu the Stats btn on layout :
 📸 **Screenshot – Stats view**
 ![alt text](image-6.png)
 
-**Features:**
-
 -   Clean summary table showing adoption counts per species
 -   Bar chart powered by Chart.js for quick data visualization
 -   Simple responsive layout using TailwindCSS
@@ -193,3 +191,17 @@ php artisan migrate
 ```bash
 composer run dev
 ```
+
+## 🎥 Demo Video
+
+As requested for the midterm submission, the demo video of this project has been uploaded to YouTube.  
+You can watch the full presentation here:
+
+👉 [**Watch the Demo Video on YouTube**] (https://youtu.be/v_zC4HfeTLU?si=606avs_5ONqzFZ07)
+
+This video demonstrates all main features of the **Pet Catalogue Manager**:
+
+-   Homepage introduction
+-   CRUD operations (Create, Edit, Delete)
+-   Filters and search functionality
+-   Statistics page with Chart.js visualization
