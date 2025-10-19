@@ -171,6 +171,7 @@ composer install
 
 ```bash
 npm install
+npm install chart.js
 npm run dev
 ```
 

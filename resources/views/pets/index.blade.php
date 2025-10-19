@@ -5,6 +5,19 @@
         All Pets 🐾
     </h1>
 
+    <!-- ✅ MESSAGE DE SUCCESS OU ERREUR -->
+    @if (session('success'))
+        <div class="mb-6 bg-green-100 border-l-4 border-green-600 text-green-800 p-4 rounded-lg shadow">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if (session('error'))
+        <div class="mb-6 bg-red-100 border-l-4 border-red-600 text-red-800 p-4 rounded-lg shadow">
+            {{ session('error') }}
+        </div>
+    @endif
+
     <!-- FILTRES -->
     <form method="GET" action="{{ route('pets.index') }}" class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
         <!-- Species -->
