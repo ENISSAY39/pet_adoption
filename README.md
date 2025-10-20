@@ -197,7 +197,7 @@ composer run dev
 As requested for the midterm submission, the demo video of this project has been uploaded to YouTube.  
 You can watch the full presentation here:
 
-👉 [**Watch the Demo Video on YouTube**] (In current update based on teacher's latest instructions)
+👉 [**Watch the Demo Video on YouTube**] (https://youtu.be/Gta4hvPITVY?si=ab_SK54yXcVJ7PAy)
 
 This video demonstrates all main features of the **Pet Catalogue Manager**:
 
