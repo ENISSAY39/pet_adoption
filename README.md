@@ -197,11 +197,11 @@ composer run dev
 As requested for the midterm submission, the demo video of this project has been uploaded to YouTube.  
 You can watch the full presentation here:
 
-👉 [**Watch the Demo Video on YouTube**] (https://youtu.be/Gta4hvPITVY?si=ab_SK54yXcVJ7PAy)
+👉 [**Watch the Demo Video on YouTube**] (https://youtu.be/Gta4hvPITVY?si=K-9T-aLGDxf3U__0)
 
-This video demonstrates all main features of the **Pet Catalogue Manager**:
+This version includes:
 
--   Homepage introduction
--   CRUD operations (Create, Edit, Delete)
--   Filters and search functionality
--   Statistics page with Chart.js visualization
+-   Full project demo (homepage, CRUD, statistics)
+-   Code explanation (controllers, models, and relationships)
+-   Camera and narration as required by the teacher
+-   ⏱️ **YouTube chapters (timeline)** for easier navigation between sections
